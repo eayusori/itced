@@ -26,23 +26,44 @@ html, body {
 }
 
 h1 {
-    font-family:"doto"; color: black; font-size: 3rem; font-weight: 300;
+    font-family:"doto"; 
+    color: black; 
+    font-size: 3rem; 
+    font-weight: 300;
 }
 
 h2 {
-    font-family:"roboto mono"; color: black; font-size: 2rem; font-weight: 700; margin: 0;
+    font-family:"roboto mono"; 
+    color: black; 
+    font-size: 2rem; 
+    font-weight: 700; 
+    margin: 0;
 }
 
 h3 {
-    font-family:"roboto mono"; color: gray; font-size: 1rem; font-weight: 300; margin: 0;
+    font-family:"roboto mono"; 
+    color: gray; 
+    font-size: 1rem; 
+    font-weight: 300; 
+    margin: 0;
 }
 
 h4 {
-    font-family:"doto"; color: black; font-size: 1rem; font-weight: 300; margin: 0; white-space: nowrap;
+    font-family:"doto"; 
+    color: black; 
+    font-size: 1rem; 
+    font-weight: 300; 
+    margin: 0; 
+    white-space: nowrap;
 }
 
 h5 {
-    font-family:"roboto mono"; color: gray; font-size: 0.9rem; font-weight: 100; margin: 0; white-space: nowrap;
+    font-family:"roboto mono"; 
+    color: gray; 
+    font-size: 0.9rem; 
+    font-weight: 100; 
+    margin: 0; 
+    white-space: nowrap;
 }
 
 header {
@@ -100,10 +121,21 @@ button {
     padding: 5px;
     cursor: pointer;
 }
+
 footer {
-    position: fixed; 
-    bottom: 10px; 
-    width: 100%;
-    text-align: center; 
-    font-size: smaller;
+     display: flex;
+    width: max-content;
+    white-space: nowrap;
+
+    animation: slide 8s linear infinite;  /* faster */
+    animation-delay: 0s;                 /* IMPORTANT */
+    animation-direction: normal;         /* IMPORTANT */
+
+    --from: 0;
+    --to: -50%;
+}
+.animatedFooter {
+    margin: 0;
+    white-space: nowrap;
+    padding-right: 1rem;
 }
