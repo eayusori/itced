@@ -1,0 +1,110 @@
+html, body {
+  overflow-x: hidden;
+}
+
+:root { --gap: 2rem; }
+
+.timeContainer {
+    overflow: hidden;
+    width: 100vw;
+}
+
+.clock {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: slide 30s linear infinite;
+    animation-direction: reverse;
+    animation-delay: -10s;
+
+    --from: 100vw;
+    --to: -100vw;
+}
+
+.clock h4 {
+    padding-right: var(--gap);
+}
+
+h1 {
+    font-family:"doto"; color: black; font-size: 3rem; font-weight: 300;
+}
+
+h2 {
+    font-family:"roboto mono"; color: black; font-size: 2rem; font-weight: 700; margin: 0;
+}
+
+h3 {
+    font-family:"roboto mono"; color: gray; font-size: 1rem; font-weight: 300; margin: 0;
+}
+
+h4 {
+    font-family:"doto"; color: black; font-size: 1rem; font-weight: 300; margin: 0; white-space: nowrap;
+}
+
+h5 {
+    font-family:"roboto mono"; color: gray; font-size: 0.9rem; font-weight: 100; margin: 0; white-space: nowrap;
+}
+
+header {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: slide 20s linear infinite;
+    --from: 0;
+    --to: -50%;
+}
+
+.animatedHeader {
+    margin: 0;
+    padding-right: 2rem;
+    white-space: nowrap;
+
+}
+
+@keyframes slide {
+  from { transform: translateX(var(--from)); }
+  to   { transform: translateX(var(--to)); }
+}
+
+.tabContainer {
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+}
+
+.projectsContainer {
+    width: 80%;
+    margin: 0 auto;
+    border: solid black 2px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 15rem;
+    justify-content: space-between;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial', Arial, sans-serif;
+}
+th{
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+footer {
+    position: fixed; 
+    bottom: 10px; 
+    width: 100%;
+    text-align: center; 
+    font-size: smaller;
+}
