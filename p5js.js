@@ -3,14 +3,13 @@ const density = " .:;-=o+*#%@";
 let img;
 let startIndex = 0;
 
-const item = document.querySelector(".aboutImg");
-
 function preload() {
   img = loadImage("images/ed.jpg");
 }
 
 function setup() {
-  createCanvas(500, 500);
+  var myCanvas = createCanvas(500, 500);
+  myCanvas.parent("p5js");
   img.resize(100, 0);
   img.loadPixels();
   textAlign(CENTER, CENTER);

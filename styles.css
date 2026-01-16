@@ -287,26 +287,21 @@ footer {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     row-gap: 8rem;
-
-    border: solid 2px black;
 }
 
 .aboutItem,
 .aboutItemMerged {
-    background-color: lightseagreen;
-    border: 1px solid coral;
     padding: 20px;
     text-align: left;
 }
 
 .aboutItemMerged {
     grid-column: span 2;
-    background-color: #b94444;
 }
 
-.aboutContainer>div {
+/*.aboutContainer>div {
     border: 1px solid black;
-}
+}*/
 
 .aboutImg {
     display: block;
