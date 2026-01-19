@@ -38,65 +38,6 @@ main {
     z-index: 999999;
 }
 
-.bouncingImg {
-    display: block;
-    width: 6rem;
-    height: 6rem;
-    object-fit: contain;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.bouncingImg.active {
-    opacity: 1;
-}
-
-.timeContainer {
-    overflow: hidden;
-    width: 100vw;
-}
-
-.clock {
-    display: flex;
-    white-space: nowrap;
-    animation: slide 15s linear infinite;
-    animation-direction: reverse;
-    --from: 100vw;
-    --to: -20vw;
-}
-
-.clock h4 {
-    padding-right: var(--gap);
-}
-
-.subHeadingOffset {
-    margin-left: 2.7%;
-    text-align: left;
-}
-
-.about {
-    margin-left: 2.7%;
-    margin-right: 65%;
-    text-align: left;
-}
-
-.about .cv-button {
-    font-family: "Roboto Mono";
-    font-size: 1rem;
-    font-weight: 200;
-    background: none;
-    border: none;
-    transition: font-weight 0.15s ease;
-}
-
-.about .cv-button:hover {
-    font-weight: 900;
-}
-
 h1 {
     margin: 0;
     font-family: "doto";
@@ -127,6 +68,69 @@ h4 {
     color: black;
     font-size: 1rem;
     font-weight: 300;
+}
+
+.bouncingImg {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 999999;
+}
+
+.bouncingImg.is-hovering {
+    width: 30rem;
+    height: 30rem;
+    z-index: 999999;
+}
+
+.bouncingImg.active {
+    opacity: 1;
+}
+
+.timeContainer {
+    overflow: hidden;
+    width: 100vw;
+}
+
+.clock {
+    animation: slide 15s linear infinite;
+    --from: -20%;
+    --to: 100%;
+}
+
+.clock h4 {
+    padding-right: var(--gap);
+}
+
+.subHeadingOffset {
+    margin-left: 2.7%;
+    text-align: left;
+}
+
+.about {
+    margin-left: 2.7%;
+    margin-right: 65%;
+    text-align: left;
+}
+
+.about .cv-button {
+    font-family: "Roboto Mono";
+    font-size: 1rem;
+    font-weight: 200;
+    background: none;
+    border: none;
+    transition: font-weight 0.15s ease;
+}
+
+.about .cv-button:hover {
+    font-weight: 900;
 }
 
 header {
@@ -163,24 +167,26 @@ header {
     justify-content: space-between;
 }
 
-.navContainer button {
+.navContainer a {
     font-family: "roboto mono";
     font-size: 1rem;
     font-weight: 200;
     background: none;
     border: none;
+    text-decoration: none;
+    color: inherit;
     transition: font-weight 0.15s ease;
 }
 
-.navContainer button:hover {
+.navContainer a:hover {
     font-weight: 700;
 }
 
-.navContainer button.active {
+.navContainer a.active {
     font-weight: 900;
 }
 
-.navContainer button.active:hover {
+.navContainer a.active:hover {
     font-weight: 700;
 }
 
@@ -196,20 +202,23 @@ header {
     justify-content: space-between;
 }
 
-.workContainer button {
+.workContainer .workButton {
     background: none;
     border: none;
     width: 100%;
     text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
-.workContainer button h3 {
+.workContainer .workButton h3 {
     position: relative;
     display: block;
     width: 100%;
 }
 
-.workContainer button h3::after {
+.workContainer .workButton h3::after {
     content: attr(data-hover);
     position: absolute;
     top: 0;
@@ -219,14 +228,14 @@ header {
     white-space: nowrap;
     text-align: left;
     font-weight: 400;
-    transition: 0.5s;
+    transition: 0s;
 }
 
-.workContainer button:hover h3 {
+.workContainer .workButton:hover h3 {
     color: transparent;
 }
 
-.workContainer button:hover h3::after {
+.workContainer .workButton:hover h3::after {
     opacity: 1;
     color: gray;
 }
@@ -245,10 +254,9 @@ footer {
     margin: 0;
     display: flex;
     white-space: nowrap;
-    animation: slide 20s linear infinite;
-    animation-direction: reverse;
-    --from: 100vw;
-    --to: -60vw;
+    animation: slide 15s linear infinite;
+    --from: -270%;
+    --to: 270%;
 }
 
 .staticFooter {

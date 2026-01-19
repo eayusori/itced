@@ -59,7 +59,7 @@ function moveCursor(e) {
 
 //bouncing cow
 
-const item = document.querySelector(".bouncingImg");
+const bouncingItem = document.querySelector(".bouncingImg");
 
 let x = 20;
 let y = 20;
@@ -68,8 +68,8 @@ let xspeed = 1.5;
 let yspeed = 1;
 
 function bounceAnimation() {
-  const w = item.offsetWidth;
-  const h = item.offsetHeight;
+  const w = bouncingItem.offsetWidth;
+  const h = bouncingItem.offsetHeight;
 
   x += xspeed;
   y += yspeed;
@@ -82,11 +82,36 @@ function bounceAnimation() {
     yspeed *= -1;
   }
 
-  item.style.transform = `translate(${x}px, ${y}px)`;
+  x = Math.min(Math.max(x, 0), window.innerWidth - w);
+  y = Math.min(Math.max(y, 0), window.innerHeight - h);
+
+  bouncingItem.style.transform = `translate(${x}px, ${y}px)`;
   requestAnimationFrame(bounceAnimation);
 }
 
 setTimeout(() => {
-  item.classList.add('active');
+  bouncingItem.classList.add('active');
   bounceAnimation();
-}, 5000);
+}, 3000);
+
+const defaultImg = bouncingItem.src;
+
+document.querySelectorAll(".workButton").forEach(button => {
+  const hoverImg = button.dataset.img;
+
+  // preload image (prevents flicker)
+  if (hoverImg) {
+    const preload = new Image();
+    preload.src = hoverImg;
+  }
+
+  button.addEventListener("mouseenter", () => {
+    if (hoverImg) bouncingItem.src = hoverImg;
+    bouncingItem.classList.add("is-hovering");
+  });
+
+  button.addEventListener("mouseleave", () => {
+    bouncingItem.src = defaultImg;
+    bouncingItem.classList.remove("is-hovering");
+  });
+});
