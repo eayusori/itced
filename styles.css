@@ -320,11 +320,16 @@ footer {
 }
 
 .aboutItemMerged {
-    grid-column: span 2;
+  grid-column: span 2;
+
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .aboutContainer>div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .aboutImg {
