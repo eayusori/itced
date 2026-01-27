@@ -328,9 +328,9 @@ footer {
   overflow: hidden;
 }
 
-.aboutContainer>div {
-    /* border: 1px solid black; */
-}
+/*.aboutContainer>div {
+    /* border: 1px solid black; 
+} */
 
 .aboutImg {
     display: block;
