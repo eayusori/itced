@@ -38,6 +38,15 @@ main {
     z-index: 999999;
 }
 
+hr.styledHr {
+    border: none;
+    height: 1px;
+    background-color: grey;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 h1 {
     margin: 0;
     font-family: "doto";
@@ -51,7 +60,15 @@ h2 {
     font-family: "roboto mono";
     color: black;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 200;
+}
+
+.hook {
+    font-family: "roboto mono";
+    color: #404040;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin: 0;
 }
 
 h3 {
@@ -85,8 +102,8 @@ h4 {
 }
 
 .bouncingImg.is-hovering {
-    width: 30rem;
-    height: 30rem;
+    width: 20rem;
+    height: 20rem;
     z-index: 999999;
 }
 
@@ -293,7 +310,6 @@ footer {
     margin-bottom: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
     row-gap: 8rem;
 }
 
@@ -307,9 +323,9 @@ footer {
     grid-column: span 2;
 }
 
-/*.aboutContainer>div {
+.aboutContainer>div {
     border: 1px solid black;
-}*/
+}
 
 .aboutImg {
     display: block;
@@ -319,4 +335,162 @@ footer {
     top: 0;
     left: 0;
     pointer-events: none;
+}
+
+.fixedExhibition {
+    position: fixed;
+    text-align: right;
+    margin-left: 70%;
+    margin-top: 2.5%;
+    width: 30%;
+    box-sizing: border-box;
+    padding-right: 2.5%;
+}
+
+.fixedProject {
+    position: fixed;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    width: 30%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.fixedProject a h3 {
+    font-family: "roboto mono";
+    font-size: 1rem;
+    font-weight: 200;
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    transition: font-weight 0.15s ease;
+}
+
+.fixedProject a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fixedProject a:hover h3 {
+    font-weight: 500;
+}
+
+.fixedProject a.active h3 {
+    font-weight: 500;
+}
+
+.fixedProject a.active:hover h3 {
+    font-weight: 700;
+}
+
+.scrollProject {
+    text-align: justify;
+    margin-left: 32.5%;
+    margin-top: 2.5%;
+    width: 65.5%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.imgSlider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.track {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    animation: mySlider 27s steps(9) infinite;
+}
+
+.mySlider {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.mySlider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid gainsboro;
+}
+
+@keyframes mySlider {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-900%);
+        /* 9 slides */
+    }
+}
+
+.landscapeImg {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.landscapeImg img {
+    width: 32rem;
+    height: auto;
+    display: block;
+}
+
+.prjct-button {
+    font-family: "Roboto Mono";
+    font-size: 1rem;
+    font-weight: 200;
+    background: none;
+    border: none;
+    transition: font-weight 0.15s ease;
+}
+
+/* carousel */
+
+.carousel {
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.mySlide {
+    display: none;
+    width: auto;
+    height: 40rem;
+    margin: 0 auto;
+}
+
+.mySlide.active {
+    display: block;
+}
+
+.thumbs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    justify-content: center;
+}
+
+.thumb {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    opacity: 0.6;
+    border: 1px solid transparent;
+}
+
+.thumb.active {
+    opacity: 1;
+    border: 2px solid gainsboro;
 }
