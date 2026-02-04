@@ -1,6 +1,6 @@
-// =========================
-// Clock
-// =========================
+
+// clock
+
 function updateTime() {
   const now = new Date();
 
@@ -32,14 +32,30 @@ updateTime();
 
 //cursor
 const cursor = document.querySelector(".cursor");
+
 if (cursor) {
+  // move cursor
   document.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
+
+  // elements that trigger hover state
+  const hoverTargets = document.querySelectorAll(
+    "a, button, .workButton, .projectGridImg"
+  );
+
+  hoverTargets.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.add("is-hovering");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("is-hovering");
+    });
+  });
 }
 
-// Bouncing image (cow)
 const bouncingItem = document.querySelector(".bouncingImg");
 
 if (bouncingItem) {
@@ -49,6 +65,29 @@ if (bouncingItem) {
   let xspeed = 1.5;
   let yspeed = 1;
 
+  const bounceImgs = [
+    "./images/huhBlue.png",
+    "./images/huhGreen.png",
+    "./images/huhYellow.png",
+    "./images/huhPink.png",
+    "./images/huhLBlue.png",
+  ];
+
+  bounceImgs.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  let defaultImg = bouncingItem.src;
+
+  function setRandomBounceImage() {
+    const current = bouncingItem.getAttribute("src");
+    const options = bounceImgs.filter((s) => s !== current);
+    const next = options[Math.floor(Math.random() * options.length)];
+    bouncingItem.src = next;
+    defaultImg = next;
+  }
+
   function bounceAnimation() {
     const w = bouncingItem.offsetWidth;
     const h = bouncingItem.offsetHeight;
@@ -56,12 +95,24 @@ if (bouncingItem) {
     x += xspeed;
     y += yspeed;
 
-    if (x <= 0 || x >= window.innerWidth - w) xspeed *= -1;
-    if (y <= 0 || y >= window.innerHeight - h) yspeed *= -1;
+    let bounced = false;
 
-    // clamp so it never goes offscreen
+    if (x <= 0 || x >= window.innerWidth - w) {
+      xspeed *= -1;
+      bounced = true;
+    }
+
+    if (y <= 0 || y >= window.innerHeight - h) {
+      yspeed *= -1;
+      bounced = true;
+    }
+
     x = Math.min(Math.max(x, 0), window.innerWidth - w);
     y = Math.min(Math.max(y, 0), window.innerHeight - h);
+
+    if (bounced && !bouncingItem.classList.contains("is-hovering")) {
+      setRandomBounceImage();
+    }
 
     bouncingItem.style.transform = `translate(${x}px, ${y}px)`;
     requestAnimationFrame(bounceAnimation);
@@ -70,9 +121,7 @@ if (bouncingItem) {
   setTimeout(() => {
     bouncingItem.classList.add("active");
     bounceAnimation();
-  }, 3000);
-
-  const defaultImg = bouncingItem.src;
+  }, 1000);
 
   document.querySelectorAll(".workButton").forEach((button) => {
     const hoverImg = button.dataset.img;
@@ -88,8 +137,8 @@ if (bouncingItem) {
     });
 
     button.addEventListener("mouseleave", () => {
-      bouncingItem.src = defaultImg;
       bouncingItem.classList.remove("is-hovering");
+      bouncingItem.src = defaultImg; 
     });
   });
 }
@@ -112,3 +161,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function toggleSize(element) {
+  element.classList.toggle('expanded');
+}
+
+function detectAndShowPopup() {
+  const popupOverlay = document.getElementById("popupOverlay");
+  const closeButton = document.getElementById("closeButton");
+
+  if (!popupOverlay || !closeButton) return;
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  if (isMobile) {
+    popupOverlay.style.display = "flex";
+  }
+
+  closeButton.addEventListener("click", () => {
+    popupOverlay.style.display = "none";
+  });
+
+  popupOverlay.addEventListener("click", (event) => {
+    if (event.target === popupOverlay) {
+      popupOverlay.style.display = "none";
+    }
+  });
+}
+
+window.addEventListener("load", detectAndShowPopup);
