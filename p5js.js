@@ -35,7 +35,7 @@ function draw() {
       
       charIndex = ((charIndex + startIndex) % density.length) / 1.5;
 
-      fill(57, 255, 20);
+      fill(0);
       textSize(min(w, h) * 1.5);
       text(density.charAt(charIndex), i * w + w / 2, j * h + h / 2);
     }
