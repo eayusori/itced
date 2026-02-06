@@ -19,10 +19,18 @@
     z-index: 1000;
 }
 
+.closeButton {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
 #popupBox {
     background: white;
     padding: 20px;
-    border-radius: 5px;
     text-align: center;
     max-width: 300px;
     box-shadow: 0 2px 5px #000;
@@ -31,10 +39,9 @@
 #closeButton {
     margin-top: 15px;
     padding: 10px 20px;
-    background: #007BFF;
+    background: #39FF14;
     color: white;
     border: none;
-    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -58,12 +65,12 @@ main {
 }
 
 .cursor {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     left: -10px;
     top: -10px;
     background: #fff;
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -90,78 +97,85 @@ hr.styledHr {
 }
 
 .headingWithTags {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.1rem;
-  flex-wrap: wrap;
-  
-}
+    display: flex;
+    align-items: flex-start;
+    gap: 0.1rem;
+    flex-wrap: wrap;
 
-.headingWithTags h2 {
-  margin: 0;
 }
 
 .tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
 
-  font-family: "roboto mono";
-  font-size: 0.75rem;
-  font-weight: 200;
-  text-transform: lowercase;
-  line-height: 1;
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    line-height: 1;
 
-  user-select: none;
+    user-select: none;
 }
 
-/* Discursive – warm yellow */
+/* Discursive – acid phosphor yellow-green */
 .tag-discursive {
-  background: #FFE8A3;
-  color: #6A5300;
+    background: #F3FFD1;
+    color: #4A5A00;
 }
 
-/* Product – calm blue */
+/* Product – phosphor green */
 .tag-product {
-  background: #CFE8FF;
-  color: #0F3A5F;
+    background: #D9FFD2;
+    color: #0C3F1C;
 }
 
-/* Graphic – lavender */
+/* Graphic – cyber cyan */
 .tag-graphic {
-  background: #E6D8FF;
-  color: #3E2A6D;
+    background: #D6FFFF;
+    color: #004A4A;
 }
 
-/* Motion – coral */
+/* Motion – signal magenta */
 .tag-motion {
-  background: #FFD6CC;
-  color: #7A1F14;
+    background: #FFD6F2;
+    color: #5A003C;
 }
 
-/* Interactive – mint green */
+/* Interactive – terminal mint */
 .tag-interactive {
-  background: #D9F3E3;
-  color: #1F5A3D;
+    background: #CFFFE6;
+    color: #0A5A2A;
 }
 
-/* Conceptual – neutral gray-lilac */
+/* Conceptual – cold terminal gray */
 .tag-conceptual {
-  background: #ECEAF0;
-  color: #3F3F46;
+    background: #E6E6E6;
+    color: #2B2B2B;
 }
 
-/* Research – pale cyan */
+/* Research – pale phosphor cyan */
 .tag-research {
-  background: #DFF5F8;
-  color: #0E4E57;
+    background: #DFFBFF;
+    color: #0E4E57;
 }
 
-/* Experimental – soft orange */
+/* Experimental – infra orange */
 .tag-experimental {
-  background: #FFD9B3;
-  color: #7A3E00;
+    background: #FFE1C7;
+    color: #5A2A00;
+}
+
+p {
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
 }
 
 h1 {
@@ -169,39 +183,33 @@ h1 {
     font-family: "doto";
     color: black;
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 h2 {
-    margin: 0;
-    font-family: "roboto mono";
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-weight: 300;
     color: black;
     font-size: 2rem;
-    font-weight: 200;
-}
-
-.hook {
-    font-family: "roboto mono";
-    color: #404040;
-    font-size: 1.5rem;
-    font-weight: 200;
     margin: 0;
 }
 
 h3 {
-    font-family: "roboto mono";
-    color: gray;
-    font-size: 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
     font-weight: 300;
+    color: #404040;
+    font-size: 1.2rem;
     margin: 0;
 }
 
 h4 {
-    margin: 0;
     font-family: "doto";
-    color: black;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 200;
+    color: black;
+    margin: 0;
 }
 
 .bouncingImg {
@@ -283,9 +291,10 @@ header {
 }
 
 .navContainer a {
-    font-family: "roboto mono";
-    font-size: 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
     font-weight: 100;
+    font-size: 1rem;
     background: none;
     border: none;
     text-decoration: none;
@@ -293,23 +302,31 @@ header {
     transition: font-weight 0.15s ease;
 }
 
+.navContainer a {
+    transition:
+        font-weight 0.15s ease,
+        color 0.15s ease,
+        text-shadow 0.15s ease;
+}
+
 .navContainer a:hover {
-    font-weight: 700;
+    font-weight: 800;
+    color: #39FF14;
 }
 
 .navContainer a.active {
-    font-weight: 900;
+    font-weight: 600;
+    color: #39FF14;
 }
 
 .navContainer a.active:hover {
-    font-weight: 700;
+    font-weight: 600;
+    color: #39FF14;
 }
 
 .workContainer {
     width: 80%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-template-rows: repeat(5, auto);
@@ -318,19 +335,14 @@ header {
 }
 
 .workContainer .workButton {
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: center;
     display: block;
+    text-align: center;
     text-decoration: none;
     color: inherit;
 }
 
 .workContainer .workButton h3 {
     position: relative;
-    display: block;
-    width: 100%;
 }
 
 .workContainer .workButton h3::after {
@@ -338,12 +350,9 @@ header {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
     opacity: 0;
     white-space: nowrap;
-    text-align: left;
-    font-weight: 400;
-    transition: 0s;
 }
 
 .workContainer .workButton:hover h3 {
@@ -352,7 +361,8 @@ header {
 
 .workContainer .workButton:hover h3::after {
     opacity: 1;
-    color: gray;
+    font-weight: 500;
+    color: #39FF14;
 }
 
 footer {
@@ -425,7 +435,9 @@ footer {
 }
 
 .aboutContainer a {
-    font-family: "roboto mono";
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-weight: 300;
     color: #000;
     text-decoration: none;
     background: none;
@@ -466,25 +478,42 @@ footer {
     position: fixed;
     text-align: right;
     margin-left: 70%;
-    margin-top: 2.5%;
+    margin-top: 2.3%;
     width: 30%;
     box-sizing: border-box;
     padding-right: 2.5%;
 }
 
+.fixedExhibition :hover {
+    color: #39FF14;
+}
+
 .fixedProject {
-    position: fixed;
-    margin-left: 2.5%;
-    margin-top: 2.5%;
-    width: 30%;
-    padding-right: 20px;
-    box-sizing: border-box;
+  position: fixed;
+  left: 1rem;           /* fixed only horizontally */
+  margin-top: 1.5rem;   /* keep your original vertical placement style */
+  padding: 1rem;
+
+  width: 30%;
+  max-width: 360px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+/* Small screens: keep it fixed, but make it 20vw */
+@media (max-width: 900px) {
+  .fixedProject {
+    width: 10vw;
+    max-width: 200px;
+    min-width: 130px;
+  }
 }
 
 .fixedProject a h3 {
-    font-family: "roboto mono";
-    font-size: 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
     font-weight: 200;
+    font-size: 1rem;
     background: none;
     border: none;
     text-decoration: none;
@@ -497,16 +526,14 @@ footer {
     color: inherit;
 }
 
-.fixedProject a:hover h3 {
-    font-weight: 500;
-}
-
-.fixedProject a.active h3 {
-    font-weight: 500;
-}
-
-.fixedProject a.active:hover h3 {
+.fixedProject a:hover p {
     font-weight: 700;
+    color: #39FF14;
+}
+
+.fixedProject a.active p {
+    font-weight: 700;
+    color: #39FF14;
 }
 
 .scrollProject {
@@ -514,9 +541,20 @@ footer {
     margin-left: 32.5%;
     margin-top: 2.5%;
     width: 65.5%;
-    padding-left: 20px;
+    max-width: 100%;
     box-sizing: border-box;
     overflow-y: auto;
+}
+
+.scrollProject-Text {
+    background: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.scrollProject-Media {
+    background: #39FF14;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .imgSlider {
@@ -579,20 +617,33 @@ footer {
     display: block;
 }
 
-.prjct-button {
-    font-family: "Roboto Mono";
-    font-size: 1rem;
+.doc-button {
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
     font-weight: 200;
+    font-size: 1rem;
+
+    color: #111;
+    text-decoration: none;
+
     background: none;
     border: none;
     transition: font-weight 0.15s ease;
+}
+
+.doc-button:hover,
+.doc-button:focus-visible {
+    text-decoration-line: underline;
+    text-decoration-color: #39FF14;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
 }
 
 /* carousel */
 
 .carousel {
     width: 100%;
-    margin: 2rem auto;
+    margin-top: 2rem;
 }
 
 .mySlide {
@@ -679,10 +730,10 @@ footer {
 }
 
 .graphicsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    gap: 15px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  align-items: center;
 }
 
 .graphicsImg {
